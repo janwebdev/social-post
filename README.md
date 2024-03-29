@@ -1,6 +1,6 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/janwebdev/social-post/badges/quality-score.png)](https://scrutinizer-ci.com/g/janwebdev/social-post/?branch=master)
-[![Build Status](https://api.travis-ci.org/janwebdev/social-post.svg?branch=master)](https://www.travis-ci.org/janwebdev/social-post)
-[![Coverage Status](https://coveralls.io/repos/github/janwebdev/social-post/badge.svg?branch=master)](https://coveralls.io/github/janwebdev/social-post?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/janwebdev/social-post/badges/quality-score.png)](https://scrutinizer-ci.com/g/janwebdev/social-post/?branch=main)
+[![Build Status](https://api.travis-ci.org/janwebdev/social-post.svg?branch=main)](https://www.travis-ci.org/janwebdev/social-post)
+[![Coverage Status](https://coveralls.io/repos/github/janwebdev/social-post/badge.svg?branch=main)](https://coveralls.io/github/janwebdev/social-post?branch=main)
 [![Latest Stable Version](https://poser.pugx.org/janwebdev/social-post/version)](https://packagist.org/packages/janwebdev/social-post)
 [![Total Downloads](https://poser.pugx.org/janwebdev/social-post/downloads)](https://packagist.org/packages/janwebdev/social-post)
 
