@@ -46,7 +46,7 @@ class TwitterSDK implements Publisher
             $mediaId = null;
             if ($message->getPictureLink()) {
                 $this->twitter->setApiVersion('1.1');
-                $mediaId = $this->twitter->post('media/upload', ['media' => $message->getPictureLink()]);
+                $mediaId = $this->twitter->post('media/upload', ['media_data' => base64_encode(file_get_contents($message->getPictureLink()))]);
             }
 
 
@@ -64,7 +64,7 @@ class TwitterSDK implements Publisher
             }
 
             $this->twitter->setApiVersion('2');
-            $post = $this->twitter->post('statuses/update', $parameters);
+            $post = $this->twitter->post('tweets', $parameters);
 
             return !empty($post->id);
 
