@@ -17,6 +17,8 @@ use Janwebdev\SocialPost\SocialNetwork\Exception\MessageNotIntendedForPublisher;
  */
 class TwitterSDK implements Publisher
 {
+    public const TEXT_MAX_LENGTH = 280;
+
     /**
      * @var TwitterOAuth
      */
@@ -46,20 +48,22 @@ class TwitterSDK implements Publisher
             $mediaId = null;
             if ($message->getPictureLink()) {
                 $this->twitter->setApiVersion('1.1');
-                $mediaId = $this->twitter->upload('media/upload', ['media' => $message->getPictureLink()]);
+                $mediaResponse = $this->twitter->upload('media/upload', ['media' => $message->getPictureLink()]);
+                $mediaId = $mediaResponse->media_id;
             }
 
 
             $status = $this->prepareStatus($message);
 
             $parameters = [
-                'status' => $status,
-                'trim_user' => true
+                'text' => $status
             ];
 
             if ($mediaId) {
                 $parameters = array_merge($parameters, [
-                    'media_ids' => (string)$mediaId
+                    'media' => [
+                        'media_ids' => [(string)$mediaId]
+                    ]
                 ]);
             }
 
@@ -82,6 +86,10 @@ class TwitterSDK implements Publisher
             if ($linkIsNotIncludedInTheStatus) {
                 $status .= ' '.$message->getLink();
             }
+        }
+
+        if (mb_strlen($status) > self::TEXT_MAX_LENGTH) {
+            throw new \Exception('Message it too long for publishing');
         }
 
         return $status;
