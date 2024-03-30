@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @license https://opensource.org/licenses/MIT
- * @link https://github.com/martin-georgiev/social-post
+ * @link https://github.com/janwebdev/social-post
  */
 class AllInOneTest extends TestCase
 {
