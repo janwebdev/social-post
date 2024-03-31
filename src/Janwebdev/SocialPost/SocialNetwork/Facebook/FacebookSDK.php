@@ -56,7 +56,7 @@ class FacebookSDK implements Publisher
             );
             $post = $response->getGraphNode();
 
-            return $post['id'] ?? false;
+            return !empty($post->getField('id'));
 
         } catch (\Exception $e) {
             throw new FailureWhenPublishingMessage($e);
